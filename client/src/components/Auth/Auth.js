@@ -1,9 +1,9 @@
 import React, { useEffect, useContext } from "react";
-import userContext from "../../context/userContext";
+import UserContext from "../../Context/UserContext";
 import { useHistory } from "react-router-dom";
 
 const Auth = (props) => {
-  const { userData } = useContext(userContext);
+  const { userData } = useContext(UserContext);
   const history = useHistory();
   useEffect(() => {
     if (userData.user) history.push("/home");

@@ -1,11 +1,11 @@
 import React, { useState, useContext, useEffect } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
-import userContext from "../context/userContext.js";
+import UserContext from "../Context/UserContext.js";
 
 const Register = () => {
   const [form, setForm] = useState();
-  const { userData, setUserData } = useContext(userContext);
+  const { userData, setUserData } = useContext(UserContext);
   const history = useHistory();
 
   const onChange = (e) => {
