@@ -6,12 +6,13 @@ require("dotenv").config();
 module.exports = {
   register: async (req, res) => {
     try {
+      console.log(req.body.password.length);
       const { fName, lName, email, password, passwordCheck } = req.body;
       if (!fName || !lName || !email || !password || !passwordCheck) {
         return res.status(400).json({ msg: "Must enter all fields" });
       }
 
-      if (!password.length < 8) {
+      if (password.length < 8) {
         return res
           .status(400)
           .json({ msg: "Password needs to be longer than 8 characters" });
@@ -23,9 +24,10 @@ module.exports = {
           .json({ msg: "Password does not match the password check." });
       }
 
-      const existingEmail = User.findOne({ email: email });
-      if (existingEmail) {
-        return res.status(400).json({ msg: "The email is already in use" });
+      const existingUser = await User.findOne({ email: email });
+
+      if (existingUser) {
+        return res.status(400).json({ msg: "User already exists" });
       }
 
       //creating salt (random string) to encrypt user password to safeguard users information
@@ -40,6 +42,7 @@ module.exports = {
         password: passwordHash,
       });
       const savedUser = await newUser.save();
+      res.json(savedUser);
     } catch (err) {
       res.status(500).json({ msg: err });
     }
@@ -79,6 +82,8 @@ module.exports = {
           name: [user.fName, user.lName],
         },
       });
-    } catch (err) {}
+    } catch (err) {
+      res.status(500).json({ msg: err });
+    }
   },
 };
