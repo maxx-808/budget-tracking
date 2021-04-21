@@ -60,6 +60,22 @@ const Register = () => {
     <div>
       <form onSubmit={submit} className="reg-form">
         <h1 style={{ paddingTop: "20px" }}>SignUp</h1>
+
+        <label style={{ color: "black" }}>First Name</label>
+        <input
+          style={{ color: "black", borderBottom: "1px solid grey" }}
+          onChange={onChange}
+          type="text"
+          name="fName"
+        />
+        <label style={{ color: "black" }}>Last Name</label>
+        <input
+          style={{ color: "black", borderBottom: "1px solid grey" }}
+          onChange={onChange}
+          type="text"
+          name="lName"
+        />
+
         <p id="registerErr" className="hidden"></p>
         <label style={{ color: "black" }}>Email</label>
         <input
@@ -87,27 +103,7 @@ const Register = () => {
         <p className="hidden err" id="passCheck">
           Password doesn't Match
         </p>
-        <label style={{ color: "black" }}>Display Name</label>
-        <input
-          style={{ color: "black", borderBottom: "1px solid grey" }}
-          onChange={onChange}
-          type="text"
-          name="displayName"
-        />
-        <label style={{ color: "black" }}>Native Language</label>
-        <input
-          style={{ color: "black", borderBottom: "1px solid grey" }}
-          onChange={onChange}
-          type="text"
-          name="native_lang"
-        />
-        <label style={{ color: "black" }}>Language you want to learn:</label>
-        <input
-          style={{ color: "black", borderBottom: "1px solid grey" }}
-          onChange={onChange}
-          type="text"
-          name="learn_lang"
-        />
+
         <input
           style={{
             marginTop: "20px",
