@@ -6,7 +6,6 @@ require("dotenv").config();
 module.exports = {
   register: async (req, res) => {
     try {
-      console.log(req.body.password.length);
       const { fName, lName, email, password, passwordCheck } = req.body;
       if (!fName || !lName || !email || !password || !passwordCheck) {
         return res.status(400).json({ msg: "Must enter all fields" });

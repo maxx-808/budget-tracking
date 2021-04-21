@@ -28,7 +28,7 @@ const Register = () => {
     console.log(form);
     try {
       await axios.post("/api/users/register", form);
-      const { data } = await axios.post("api/users/login", {
+      const { data } = await axios.post("/api/users/login", {
         email: form.email,
         password: form.password,
       });
@@ -39,10 +39,9 @@ const Register = () => {
       });
 
       localStorage.setItem("auth-token", data.token);
-
       history.push("/");
     } catch (err) {
-      console.log(err);
+      console.log(err.response);
 
       const regErr = document.getElementById("registerErr");
       regErr.innerHTML = err.response.data.msg;
