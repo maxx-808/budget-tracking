@@ -1,8 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
-import UserContext from "../Context/UserContext.js";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
-import userContext from "../Context/UserContext.js";
+import userContext from "../context/userContext.js";
 
 const Register = () => {
   const [form, setForm] = useState();
@@ -56,4 +55,71 @@ const Register = () => {
       passErr.classList.add("hidden");
     }
   };
+
+  return (
+    <div>
+      <form onSubmit={submit} className="reg-form">
+        <h1 style={{ paddingTop: "20px" }}>SignUp</h1>
+        <p id="registerErr" className="hidden"></p>
+        <label style={{ color: "black" }}>Email</label>
+        <input
+          style={{ color: "black", borderBottom: "1px solid grey" }}
+          onChange={onChange}
+          type="text"
+          name="email"
+        />
+        <label style={{ color: "black" }}>Password</label>
+        <input
+          style={{ color: "black", borderBottom: "1px solid grey" }}
+          onChange={(onChange, passChange)}
+          type="password"
+          name="password"
+          id="inputPass"
+        />
+        <label style={{ color: "black" }}>Password Check</label>
+        <input
+          style={{ color: "black", borderBottom: "1px solid grey" }}
+          onChange={(onChange, passChange)}
+          type="password"
+          name="passwordCheck"
+          id="inputCheck"
+        />
+        <p className="hidden err" id="passCheck">
+          Password doesn't Match
+        </p>
+        <label style={{ color: "black" }}>Display Name</label>
+        <input
+          style={{ color: "black", borderBottom: "1px solid grey" }}
+          onChange={onChange}
+          type="text"
+          name="displayName"
+        />
+        <label style={{ color: "black" }}>Native Language</label>
+        <input
+          style={{ color: "black", borderBottom: "1px solid grey" }}
+          onChange={onChange}
+          type="text"
+          name="native_lang"
+        />
+        <label style={{ color: "black" }}>Language you want to learn:</label>
+        <input
+          style={{ color: "black", borderBottom: "1px solid grey" }}
+          onChange={onChange}
+          type="text"
+          name="learn_lang"
+        />
+        <input
+          style={{
+            marginTop: "20px",
+            backgroundColor: "lightGrey",
+            borderRadius: "10px",
+          }}
+          type="submit"
+          name="Register"
+        />
+      </form>
+    </div>
+  );
 };
+
+export default Register;
