@@ -38,11 +38,11 @@ const Register = () => {
       regErr.classList.remove("hidden");
       regErr.classList.add("err");
     }
-
-    useEffect(() => {
-      if (userData.user) history.push("/");
-    }, [userData.user, history]);
   };
+
+  useEffect(() => {
+    if (userData.user) history.push("/");
+  }, [userData.user, history]);
 
   const passChange = (e) => {
     const passInput = document.getElementById("inputPass").value;
