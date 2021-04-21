@@ -23,6 +23,11 @@ const userSchema = new mongoose.Schema({
     required: true,
     trim: true,
   },
+  confirmation: {
+    type: Boolean,
+    required: true,
+    default: false,
+  },
 });
 
 module.exports = User = mongoose.model("user", userSchema);
