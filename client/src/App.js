@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Register from "./Pages/Register";
+import Home from "./Pages/Home";
 
 import userContext from "./Context/UserContext";
 import "./App.css";
@@ -41,6 +42,7 @@ function App() {
       <Router>
         <userContext.Provider value={{ userData, setUserData }}>
           <Switch>
+            <Route exact path="/" component={Home} />
             <Route exact path="/register" component={Register} />
           </Switch>
         </userContext.Provider>

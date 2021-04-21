@@ -9,12 +9,23 @@ const Register = () => {
   const history = useHistory();
 
   const onChange = (e) => {
+    console.log("onChange", e.target.name);
     setForm({ ...form, [e.target.name]: e.target.value });
+
+    const passInput = document.getElementById("inputPass").value;
+    const passCheckInput = document.getElementById("inputCheck").value;
+    const passErr = document.getElementById("passCheck");
+    if (passInput !== passCheckInput) {
+      passErr.classList.remove("hidden");
+    }
+    if (passInput === passCheckInput) {
+      passErr.classList.add("hidden");
+    }
   };
 
   const submit = async (e) => {
     e.preventDefault();
-
+    console.log(form);
     try {
       await axios.post("/api/users/register", form);
       const { data } = await axios.post("api/users/login", {
@@ -31,35 +42,38 @@ const Register = () => {
 
       history.push("/");
     } catch (err) {
-      console.log(err.response);
+      console.log(err);
 
       const regErr = document.getElementById("registerErr");
       regErr.innerHTML = err.response.data.msg;
       regErr.classList.remove("hidden");
       regErr.classList.add("err");
     }
-
-    useEffect(() => {
-      if (userData.user) history.push("/");
-    }, [userData.user, history]);
   };
 
-  const passChange = (e) => {
-    const passInput = document.getElementById("inputPass").value;
-    const passCheckInput = document.getElementById("inputCheck").value;
-    const passErr = document.getElementById("passCheck");
-    if (passInput !== passCheckInput) {
-      passErr.classList.remove("hidden");
-    }
-    if (passInput === passCheckInput) {
-      passErr.classList.add("hidden");
-    }
-  };
+  useEffect(() => {
+    if (userData.user) history.push("/");
+  }, [userData.user, history]);
 
   return (
     <div>
       <form onSubmit={submit} className="reg-form">
         <h1 style={{ paddingTop: "20px" }}>SignUp</h1>
+        <label style={{ color: "black" }}>First Name</label>
+        <input
+          style={{ color: "black", borderBottom: "1px solid grey" }}
+          onChange={onChange}
+          type="text"
+          name="fName"
+        />
+        <label style={{ color: "black" }}>Last Name</label>
+        <input
+          style={{ color: "black", borderBottom: "1px solid grey" }}
+          onChange={onChange}
+          type="text"
+          name="lName"
+        />
+
         <p id="registerErr" className="hidden"></p>
         <label style={{ color: "black" }}>Email</label>
         <input
@@ -71,7 +85,7 @@ const Register = () => {
         <label style={{ color: "black" }}>Password</label>
         <input
           style={{ color: "black", borderBottom: "1px solid grey" }}
-          onChange={(onChange, passChange)}
+          onChange={onChange}
           type="password"
           name="password"
           id="inputPass"
@@ -79,7 +93,7 @@ const Register = () => {
         <label style={{ color: "black" }}>Password Check</label>
         <input
           style={{ color: "black", borderBottom: "1px solid grey" }}
-          onChange={(onChange, passChange)}
+          onChange={onChange}
           type="password"
           name="passwordCheck"
           id="inputCheck"
@@ -87,27 +101,7 @@ const Register = () => {
         <p className="hidden err" id="passCheck">
           Password doesn't Match
         </p>
-        <label style={{ color: "black" }}>Display Name</label>
-        <input
-          style={{ color: "black", borderBottom: "1px solid grey" }}
-          onChange={onChange}
-          type="text"
-          name="displayName"
-        />
-        <label style={{ color: "black" }}>Native Language</label>
-        <input
-          style={{ color: "black", borderBottom: "1px solid grey" }}
-          onChange={onChange}
-          type="text"
-          name="native_lang"
-        />
-        <label style={{ color: "black" }}>Language you want to learn:</label>
-        <input
-          style={{ color: "black", borderBottom: "1px solid grey" }}
-          onChange={onChange}
-          type="text"
-          name="learn_lang"
-        />
+
         <input
           style={{
             marginTop: "20px",
