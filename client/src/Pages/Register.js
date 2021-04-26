@@ -2,11 +2,13 @@ import React, { useState, useContext, useEffect } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import userContext from "../Context/UserContext";
+import LandNav from "../components/Navbar/LandNav";
 
 const Register = () => {
   const [form, setForm] = useState();
   const { userData, setUserData } = useContext(userContext);
   const history = useHistory();
+  const page = useState({ page: "/register" });
 
   const onChange = (e) => {
     console.log("onChange", e.target.name);
@@ -56,6 +58,7 @@ const Register = () => {
 
   return (
     <div>
+      <LandNav page={page} />
       <form onSubmit={submit} className="reg-form">
         <h1 style={{ paddingTop: "20px" }}>SignUp</h1>
         <label style={{ color: "black" }}>First Name</label>
