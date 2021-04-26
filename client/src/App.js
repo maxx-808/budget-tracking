@@ -6,6 +6,7 @@ import Home from "./Pages/Home";
 
 import userContext from "./Context/UserContext";
 import "./App.css";
+import Login from "./Pages/Login";
 
 function App() {
   const [userData, setUserData] = useState({
@@ -44,6 +45,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/register" component={Register} />
+            <Route exact path="/login" component={Login} />
           </Switch>
         </userContext.Provider>
       </Router>
