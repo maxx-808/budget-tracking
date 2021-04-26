@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import "./Nav.css";
 import "../../Pages/Login";
 import "../../Pages/Register";
 
@@ -17,16 +18,19 @@ function LandNav(props) {
   });
 
   return (
-    <div className="nav-wrapper">
-      <ul id="nav-mobile" className="right hide-on-med-and-down">
-        <li id="login">
-          <Link to="/login">Login</Link>
-        </li>
-        <li id="register">
-          <Link to="/register">Register</Link>
-        </li>
-      </ul>
-    </div>
+    <nav>
+      {" "}
+      <div className="nav-wrapper">
+        <ul id="nav-mobile" className="right hide-on-med-and-down">
+          <li id="login">
+            <Link to="/login">Login</Link>
+          </li>
+          <li id="register">
+            <Link to="/register">Register</Link>
+          </li>
+        </ul>
+      </div>
+    </nav>
   );
 }
 

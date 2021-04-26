@@ -1,0 +1,35 @@
+nav {
+  background: #ffd89b; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to left,
+    #19547b,
+    #ffd89b
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to left,
+    #19547b,
+    #ffd89b
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  width: 100vw;
+  height: 100px;
+}
+
+#logo {
+  margin: auto;
+  margin-left: 150px;
+  width: 90px;
+  padding-top: 5px;
+}
+
+#logo {
+  margin-left: 150px;
+  width: 90px;
+  padding-top: 5px;
+}
+
+ul {
+  margin-right: 20px;
+  margin-top: 0;
+  list-style: none;
+}

@@ -55,3 +55,8 @@
   font-size: 18px;
   color: black;
 }
+
+body {
+  height: 100;
+  width: 100%;
+}
