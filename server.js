@@ -10,7 +10,7 @@ app.use(express.json());
 
 //mongoose connection
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/budgetTracking",
+  process.env.MONGODB_URI || "mongodb://localhost/budget-tracking",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -30,8 +30,8 @@ if (process.env.NODE_ENV == "production") {
 //calling the routes
 app.use("/api/users", require("./routes/userRoutes"));
 
-// app.get("*", (req, res) => {
-//   res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-// });
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+});
 
 app.listen(PORT, () => console.log(`Listening at http://localhost:${PORT}`));

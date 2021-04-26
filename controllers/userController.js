@@ -30,7 +30,7 @@ module.exports = {
       }
 
       //creating salt (random string) to encrypt user password to safeguard users information
-      const salt = await bcrypt.genSalt(20);
+      const salt = await bcrypt.genSalt();
       //hashing (mixing) the salt and password so that it is random string
       const passwordHash = await bcrypt.hash(password, salt);
 
@@ -40,15 +40,19 @@ module.exports = {
         email,
         password: passwordHash,
       });
+
       const savedUser = await newUser.save();
+
       res.json(savedUser);
     } catch (err) {
+      console.log("register err", err);
       res.status(500).json({ msg: err });
     }
   },
   login: async (req, res) => {
     try {
       const { email, password } = req.body;
+      console.log("login: ", email, password);
       if (!email) {
         res.status(400).json({ msg: "Please enter an email" });
       }
@@ -57,6 +61,7 @@ module.exports = {
       }
 
       const user = await User.findOne({ email: email });
+
       if (!user) {
         res.status(401).json({
           msg: "The email or password you have entered is incorrect",
@@ -69,7 +74,7 @@ module.exports = {
           .status(401)
           .json({ msg: "The email or password you have entered is incorrect" });
       }
-      const token = jwt.sign({ id: userContext._id }, process.env.JWT_SECRET, {
+      const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
         expiresIn: "24h",
       });
 
