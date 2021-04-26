@@ -3,11 +3,14 @@ import UserContext from "../Context/UserContext.js";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import "../App.css";
+import LandNav from "../components/Navbar/LandNav";
 
 const Login = () => {
   const [form, setForm] = useState();
   const { userData, setUserData } = useContext(UserContext);
   const history = useHistory();
+
+  const page = useState({ page: "/login" });
 
   const onChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -47,6 +50,7 @@ const Login = () => {
 
   return (
     <div>
+      <LandNav page={page} />
       <form onSubmit={submitLoginForm} className="login-form">
         <h1 style={{ padding: "20px" }}>Login</h1>
         <label style={{ color: "black" }}>email</label>
