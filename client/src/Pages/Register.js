@@ -30,18 +30,18 @@ const Register = () => {
     console.log(form);
     try {
       await axios.post("/api/users/register", form);
-      const { data } = await axios.post("/api/users/login", {
-        email: form.email,
-        password: form.password,
-      });
+      // const { data } = await axios.post("/api/users/login", {
+      //   email: form.email,
+      //   password: form.password,
+      // });
 
-      setUserData({
-        token: data.token,
-        user: data.user,
-      });
+      // setUserData({
+      //   token: data.token,
+      //   user: data.user,
+      // });
 
-      localStorage.setItem("auth-token", data.token);
-      history.push("/");
+      // localStorage.setItem("auth-token", data.token);
+      // history.push("/");
     } catch (err) {
       console.log(err.response);
 

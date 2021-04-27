@@ -34,11 +34,19 @@ module.exports = {
       //hashing (mixing) the salt and password so that it is random string
       const passwordHash = await bcrypt.hash(password, salt);
 
+      const characters =
+        "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      let token = "";
+      for (let i = 0; i < 25; i++) {
+        token += characters[Math.floor(Math.random() * characters.length)];
+      }
+
       const newUser = new User({
         fName,
         lName,
         email,
         password: passwordHash,
+        confirmation: token,
       });
 
       const savedUser = await newUser.save();
@@ -74,6 +82,13 @@ module.exports = {
           .status(401)
           .json({ msg: "The email or password you have entered is incorrect" });
       }
+
+      if (user.status != "active") {
+        return res
+          .status(401)
+          .json({ msg: "You must confirm your email before logging in" });
+      }
+
       const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
         expiresIn: "24h",
       });
@@ -90,4 +105,6 @@ module.exports = {
       res.status(500).json({ msg: err });
     }
   },
+
+  confirmation: async (req, res) => {},
 };
