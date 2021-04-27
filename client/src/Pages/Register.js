@@ -11,7 +11,6 @@ const Register = () => {
   const page = useState({ page: "/register" });
 
   const onChange = (e) => {
-    console.log("onChange", e.target.name);
     setForm({ ...form, [e.target.name]: e.target.value });
 
     const passInput = document.getElementById("inputPass").value;
@@ -27,7 +26,6 @@ const Register = () => {
 
   const submit = async (e) => {
     e.preventDefault();
-    console.log(form);
     try {
       await axios.post("/api/users/register", form);
       // const { data } = await axios.post("/api/users/login", {
