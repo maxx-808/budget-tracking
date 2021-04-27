@@ -1,6 +1,7 @@
 const User = require("../models/userModel");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
+const nodemailer = require("nodemailer");
 require("dotenv").config();
 
 module.exports = {
@@ -52,6 +53,35 @@ module.exports = {
       const savedUser = await newUser.save();
 
       res.json(savedUser);
+
+      //confirmation email once registered
+      const nodeEmail = process.env.CONFIRM_EMAIL;
+      const nodePass = process.env.CONFIRM_PASS;
+
+      const transport = nodemailer.createTransport({
+        service: "Gmail",
+        auth: {
+          user: nodeEmail,
+          pass: nodePass,
+        },
+      });
+
+      const sendConfirmationEmail = () => {
+        console.log("Check");
+        transport.sendMail({
+          from: nodeEmail,
+          to: newUser.email,
+          subject: "Please confirm your account",
+          html: `<h1>Email Confirmation</h1>
+          <h2>Hello ${newUser.fName},</h2>
+          <p>Thank you for subscribing. Please confirm your email by clicking on the following link</p>
+          <a href=http://localhost:8081/confirm/${newUser.confirmation}> Click here</a>
+          `,
+        });
+      };
+      console.log("newUser", newUser);
+      console.log("savedUser", savedUser);
+      sendConfirmationEmail(newUser.fName, newUser.email, newUser.confirmation);
     } catch (err) {
       console.log("register err", err);
       res.status(500).json({ msg: err });
@@ -106,5 +136,23 @@ module.exports = {
     }
   },
 
-  confirmation: async (req, res) => {},
+  confirmation: async (req, res, next) => {
+    try {
+      const user = await User.findOne({
+        confirmation: req.params.confirmationCode,
+      });
+      if (!user) {
+        return res.status(404).json({ msg: "User Not Found." });
+      }
+      user.status = "active";
+      user.save((err) => {
+        if (err) {
+          res.status(500).json({ msg: err });
+        }
+        return;
+      });
+    } catch (err) {
+      res.status(500).json({ msg: err });
+    }
+  },
 };
