@@ -19,7 +19,6 @@ function LandNav(props) {
 
   return (
     <nav>
-      {" "}
       <div className="nav-wrapper">
         <ul id="nav-mobile" className="right hide-on-med-and-down">
           <li id="login">

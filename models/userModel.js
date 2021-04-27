@@ -24,8 +24,13 @@ const userSchema = new mongoose.Schema({
     trim: true,
   },
   confirmation: {
-    type: Boolean,
-    default: false,
+    type: String,
+    unique: true,
+  },
+  status: {
+    type: String,
+    enum: ["pending", "active"],
+    default: "pending",
   },
 });
 
