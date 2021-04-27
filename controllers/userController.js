@@ -66,6 +66,12 @@ module.exports = {
         },
       });
 
+      //
+      //
+      //
+      //
+      //
+      //CHANGE HREF WHEN DEPLOYING
       const sendConfirmationEmail = () => {
         console.log("Check");
         transport.sendMail({
@@ -75,7 +81,7 @@ module.exports = {
           html: `<h1>Email Confirmation</h1>
           <h2>Hello ${newUser.fName},</h2>
           <p>Thank you for subscribing. Please confirm your email by clicking on the following link</p>
-          <a href=http://localhost:8081/confirm/${newUser.confirmation}> Click here</a>
+          <a href=http://localhost:3000/confirm/${newUser.confirmation}> Click here</a>
           `,
         });
       };
@@ -137,10 +143,14 @@ module.exports = {
   },
 
   confirmation: async (req, res, next) => {
+    console.log("confirmation started");
     try {
       const user = await User.findOne({
         confirmation: req.params.confirmationCode,
       });
+
+      console.log("confirm user found", user);
+
       if (!user) {
         return res.status(404).json({ msg: "User Not Found." });
       }
