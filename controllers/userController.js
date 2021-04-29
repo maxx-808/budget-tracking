@@ -85,8 +85,6 @@ module.exports = {
           `,
         });
       };
-      console.log("newUser", newUser);
-      console.log("savedUser", savedUser);
       sendConfirmationEmail(newUser.fName, newUser.email, newUser.confirmation);
     } catch (err) {
       console.log("register err", err);
@@ -143,13 +141,10 @@ module.exports = {
   },
 
   confirmation: async (req, res, next) => {
-    console.log("confirmation started");
     try {
       const user = await User.findOne({
         confirmation: req.params.confirmationCode,
       });
-
-      console.log("confirm user found", user);
 
       if (!user) {
         return res.status(404).json({ msg: "User Not Found." });
