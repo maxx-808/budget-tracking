@@ -8,7 +8,7 @@ const Register = () => {
   const [form, setForm] = useState();
   const { userData, setUserData } = useContext(userContext);
   const history = useHistory();
-  const page = useState({ page: "/register" });
+  const page = useState({ page: "register" });
 
   const onChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });

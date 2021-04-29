@@ -39,6 +39,7 @@
 
 .hidden {
   visibility: hidden;
+  display: none;
 }
 
 .err {

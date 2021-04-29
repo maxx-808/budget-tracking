@@ -8,6 +8,7 @@ import userContext from "./Context/UserContext";
 import "./App.css";
 import Login from "./Pages/Login";
 import Confirm from "./Pages/Confirm";
+import Landing from "./Pages/Landing";
 
 function App() {
   const [userData, setUserData] = useState({
@@ -44,7 +45,8 @@ function App() {
       <Router>
         <userContext.Provider value={{ userData, setUserData }}>
           <Switch>
-            <Route exact path="/" component={Home} />
+            <Route exact path="/" component={Landing} />
+            <Route exact path="/home" component={Home} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
             <Route

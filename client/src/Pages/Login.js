@@ -10,7 +10,7 @@ const Login = () => {
   const { userData, setUserData } = useContext(UserContext);
   const history = useHistory();
 
-  const page = useState({ page: "/login" });
+  const page = useState({ page: "login" });
 
   const onChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
