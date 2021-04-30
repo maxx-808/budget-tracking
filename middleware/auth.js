@@ -21,3 +21,5 @@ const auth = (req, res, next) => {
     console.log("auth err: ", err);
   }
 };
+
+module.exports = auth;

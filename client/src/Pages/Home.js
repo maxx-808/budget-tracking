@@ -7,7 +7,7 @@ const Home = () => {
   const history = useHistory();
 
   useEffect(() => {
-    if (!userData.user) history.push("/register");
+    if (!userData.user) history.push("/login");
   }, [userData.user, history]);
 
   return (

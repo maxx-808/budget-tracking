@@ -94,7 +94,6 @@ module.exports = {
   login: async (req, res) => {
     try {
       const { email, password } = req.body;
-      console.log("login: ", email, password);
       if (!email) {
         res.status(400).json({ msg: "Please enter an email" });
       }
@@ -158,6 +157,21 @@ module.exports = {
       });
     } catch (err) {
       res.status(500).json({ msg: err });
+    }
+  },
+
+  getUser: async (req, res) => {
+    try {
+      const user = await User.findById(req.user);
+
+      res.json({
+        user: {
+          displayName: user.fName,
+          id: user._id,
+        },
+      });
+    } catch (err) {
+      res.send(err.response);
     }
   },
 };

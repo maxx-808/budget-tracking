@@ -46,14 +46,10 @@ function App() {
         <userContext.Provider value={{ userData, setUserData }}>
           <Switch>
             <Route exact path="/" component={Landing} />
-            <Route exact path="/home" component={Home} />
-            <Route exact path="/register" component={Register} />
-            <Route exact path="/login" component={Login} />
-            <Route
-              exact
-              path="/confirm/:confirmationCode"
-              component={Confirm}
-            />
+            <Route path="/home" component={Home} />
+            <Route path="/register" component={Register} />
+            <Route path="/login" component={Login} />
+            <Route path="/confirm/:confirmationCode" component={Confirm} />
           </Switch>
         </userContext.Provider>
       </Router>
