@@ -32,7 +32,7 @@ app.use("/api/users", require("./routes/userRoutes"));
 app.use("/api/auth", require("./routes/authRoutes"));
 
 app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  res.sendFile(path.resolve(__dirname, "client", "public", "index.html"));
 });
 
 app.listen(PORT, () => console.log(`Listening at http://localhost:${PORT}`));
