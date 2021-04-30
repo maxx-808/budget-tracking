@@ -1,23 +1,17 @@
 import React, { useState, useEffect } from "react";
-import "./Nav.css";
+import "../Nav.css";
 
-const NavTest = (props) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggle = () => setIsOpen(!isOpen);
-
+const Nav = (props) => {
   const currentPage = props.page[0].page;
-
-  useEffect(() => {
-    const login = document.getElementById("login");
-    const register = document.getElementById("register");
-    if (currentPage === "login") {
-      login.classList.add("hidden");
-    } else if (currentPage === "register") {
-      register.classList.add("hidden");
-    }
+  const [userData, setUserData] = useState({
+    user: undefined,
+    token: undefined,
   });
 
+  const logout = () => {
+    setUserData({ token: undefined, user: undefined });
+    localStorage.setItem("auth-token", "");
+  };
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -102,14 +96,14 @@ const NavTest = (props) => {
           </ul>
           <div className="form-inline my-2 my-lg-0">
             <ul className="navbar-nav mr-auto">
-              <li id="login" className="landNav nav-item active">
-                <a className="nav-link" href="/login">
-                  Login
+              <li id="login" className="nav-item active">
+                <a className="nav-link" href="#">
+                  Profile
                 </a>
               </li>
-              <li id="register" className="landNav nav-item active">
-                <a className="nav-link" href="/register">
-                  Register Now!
+              <li id="Logout" className="nav-item active">
+                <a className="nav-link" href="/" onClick={logout}>
+                  Log Out
                 </a>
               </li>
             </ul>
@@ -120,4 +114,4 @@ const NavTest = (props) => {
   );
 };
 
-export default NavTest;
+export default Nav;

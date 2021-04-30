@@ -3,7 +3,7 @@ import UserContext from "../Context/UserContext.js";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import "../App.css";
-import LandNav from "../components/Navbar/LandNav";
+import LandNav from "../components/Navbar/LandNav/LandNav.js";
 
 const Login = () => {
   const [form, setForm] = useState();

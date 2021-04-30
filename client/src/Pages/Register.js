@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import userContext from "../Context/UserContext";
-import LandNav from "../components/Navbar/LandNav";
+import LandNav from "../components/Navbar/LandNav/LandNav.js";
 
 const Register = () => {
   const [form, setForm] = useState();
