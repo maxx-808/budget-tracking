@@ -15,7 +15,7 @@ const Nav = (props) => {
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <a className="navbar-brand" href="/">
+        <a className="navbar-brand" href="/home">
           Budget Tracker :D
         </a>
         <button
