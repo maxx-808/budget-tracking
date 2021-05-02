@@ -17,12 +17,12 @@ const Contact = () => {
     setContact({ ...contact, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e, req, res) => {
     e.preventDefault();
 
     try {
       await axios.post("/api/send/msg", contact);
-      console.log("sent");
+      console.log("message sent");
     } catch (err) {
       console.log(err);
     }
