@@ -13,20 +13,16 @@ const Contact = () => {
     message: "",
   });
 
-  console.log(contact);
-
   const onChange = (e) => {
     setContact({ ...contact, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e, req, res) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      await axios.post("/api/contact/send", {
-        data: contact,
-      });
-      res.status(200).json({ msg: "Your message has been sent." });
+      await axios.post("/api/send/msg", contact);
+      console.log("sent");
     } catch (err) {
       console.log(err);
     }

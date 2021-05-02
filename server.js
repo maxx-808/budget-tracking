@@ -10,6 +10,7 @@ require("dotenv").config;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cors());
 
 //mongoose connection
 mongoose.connect(
@@ -26,16 +27,26 @@ mongoose.connect(
   }
 );
 
-const transport = {
+const nodeEmail = process.env.CONFIRM_EMAIL;
+const nodePass = process.env.CONFIRM_PASS;
+
+const transport = nodemailer.createTransport({
   host: "smtp.gmail.com",
   port: 587,
   auth: {
-    email: process.env.CONFIRM_EMAIL,
-    pass: process.env.CONFIRM_PASS,
+    type: "OAuth2",
+    user: nodeEmail,
+    pass: nodePass,
   },
-};
+});
 
-const transporter = nodemailer.createTransport(transport);
+transport.verify((err, success) => {
+  if (err) {
+    console.log("transport verify err: ", err);
+  } else {
+    console.log("server is ready to take messages");
+  }
+});
 
 if (process.env.NODE_ENV == "production") {
   app.use(express.static("client/build"));
@@ -44,7 +55,7 @@ if (process.env.NODE_ENV == "production") {
 //calling the routes
 app.use("/api/users", require("./routes/userRoutes"));
 app.use("/api/auth", require("./routes/authRoutes"));
-app.use("api/contact", require("./routes/nodemailerRoutes"));
+app.use("api/send", require("./routes/nodemailerRoutes"));
 
 app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));

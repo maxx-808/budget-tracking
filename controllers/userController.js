@@ -69,8 +69,6 @@ module.exports = {
       //
       //
       //
-      //
-      //
       //CHANGE HREF WHEN DEPLOYING
       const sendConfirmationEmail = () => {
         console.log("Check");
