@@ -9,6 +9,7 @@ import "./App.css";
 import Login from "./Pages/Login";
 import Confirm from "./Pages/Confirm";
 import Landing from "./Pages/Landing";
+import Contact from "./Pages/Contact";
 
 function App() {
   const [userData, setUserData] = useState({
@@ -45,6 +46,8 @@ function App() {
             <Route path="/register" component={Register} />
             <Route path="/login" component={Login} />
             <Route path="/confirm/:confirmationCode" component={Confirm} />
+
+            <Route path="/contact" component={Contact} />
           </Switch>
         </userContext.Provider>
       </Router>

@@ -3,16 +3,27 @@ import "../Nav.css";
 
 const LandNav = (props) => {
   const currentPage = props.page[0].page;
-
+  const [userData, setUserData] = useState({
+    user: undefined,
+    token: undefined,
+  });
   useEffect(() => {
     const login = document.getElementById("login");
     const register = document.getElementById("register");
+    const logout = document.getElementById("logout");
     if (currentPage === "login") {
       login.classList.add("hidden");
     } else if (currentPage === "register") {
       register.classList.add("hidden");
+    } else if (userData.user === undefined || userData.token === undefined) {
+      logout.classList.add("hidden");
     }
   });
+
+  const logout = () => {
+    setUserData({ token: undefined, user: undefined });
+    localStorage.setItem("auth-token", "");
+  };
 
   return (
     <div>
@@ -40,7 +51,7 @@ const LandNav = (props) => {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <a className="nav-link" href="/contact">
                 Contact
               </a>
             </li>
@@ -106,6 +117,11 @@ const LandNav = (props) => {
               <li id="register" className="nav-item active">
                 <a className="nav-link" href="/register">
                   Register Now!
+                </a>
+              </li>
+              <li id="logout" className="nav-item active">
+                <a className="nav-link" href="/" onClick={logout}>
+                  Log Out
                 </a>
               </li>
             </ul>
