@@ -54,15 +54,25 @@ module.exports = {
       const mail = {
         from: name,
         to: process.env.CONFIRM_EMAIL,
-        subject: "Message from contact form",
+        subject: "Message from budget-tracking contact",
         text: content,
       };
 
       transport.sendMail(mail, (err, data) => {
         if (err) {
-          res.json({ status: "fail" });
+          res.json({
+            status: "fail",
+            msg:
+              "Sorry, your message can't be sent at this time. If you are in no rush, please try again later. But if you need to address something quickly, you may email: max.webdevprojects@gmail.com directly. Please add your name (if you are a user, the same name as you entered) and for the subject line write: 'budget-tracking contact'. ",
+          });
         } else {
-          res.json({ status: "success" });
+          console.log(data);
+          res.json({
+            status: "success",
+            msg:
+              "Your message has been sent. The developer will get back to you as soon as possible. Thank you.",
+          });
+          transport.close();
         }
       });
     } catch (err) {
