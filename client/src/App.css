@@ -61,3 +61,22 @@ body {
   height: 100;
   width: 100%;
 }
+
+#contact-form {
+  align-items: center;
+  height: 500px;
+  margin-top: 20px;
+  margin-bottom: 100px;
+  margin-left: 25%;
+  margin-right: 25%;
+  width: 50%;
+  border: solid black 1px;
+  padding: 10px;
+}
+
+#contact-about {
+  margin-top: 20px;
+  margin-left: 70px;
+  margin-right: 70px;
+  text-align: left !important;
+}
