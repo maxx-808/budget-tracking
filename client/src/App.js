@@ -10,6 +10,7 @@ import Login from "./Pages/Login";
 import Confirm from "./Pages/Confirm";
 import Landing from "./Pages/Landing";
 import Contact from "./Pages/Contact";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   const [userData, setUserData] = useState({
@@ -51,6 +52,7 @@ function App() {
           </Switch>
         </userContext.Provider>
       </Router>
+      <Footer />
     </div>
   );
 }

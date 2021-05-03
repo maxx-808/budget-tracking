@@ -1,6 +1,4 @@
 import React, { useState, useContext, useEffect } from "react";
-import UserContext from "../Context/UserContext";
-import { useHistory } from "react-router-dom";
 import "../App.css";
 import LandNav from "../components/Navbar/LandNav/LandNav.js";
 import Auth from "../components/Auth/Auth";
@@ -11,7 +9,7 @@ const Landing = () => {
     <div>
       <Auth>
         <LandNav page={page} />
-        <h1>Hello landing</h1>
+        <h1>Welcome to my Budget Tracker</h1>
       </Auth>
     </div>
   );

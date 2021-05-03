@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "../Nav.css";
 
-const Nav = (props) => {
-  const currentPage = props.page[0].page;
+const Nav = () => {
+  // const currentPage = props.page[0].page;
   const [userData, setUserData] = useState({
     user: undefined,
     token: undefined,
@@ -43,9 +43,8 @@ const Nav = (props) => {
               </a>
             </li>
             <li className="nav-item dropdown">
-              <a
+              <span
                 className="nav-link dropdown-toggle"
-                href="#"
                 id="navbarDropdown"
                 role="button"
                 data-toggle="dropdown"
@@ -53,7 +52,7 @@ const Nav = (props) => {
                 aria-expanded="false"
               >
                 Links
-              </a>
+              </span>
               <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a
                   className="dropdown-item"
