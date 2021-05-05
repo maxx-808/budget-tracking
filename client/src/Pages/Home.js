@@ -7,6 +7,7 @@ const Home = () => {
   const { userData } = useContext(UserContext);
   const history = useHistory();
   const page = useState({ page: "home" });
+  const userId = userData.user.user.id;
 
   useEffect(() => {
     if (!userData.user) history.push("/login");

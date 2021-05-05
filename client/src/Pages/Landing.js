@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState } from "react";
 import "../App.css";
 import LandNav from "../components/Navbar/LandNav/LandNav.js";
 import Auth from "../components/Auth/Auth";
