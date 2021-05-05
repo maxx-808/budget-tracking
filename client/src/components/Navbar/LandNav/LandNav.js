@@ -56,9 +56,8 @@ const LandNav = (props) => {
               </a>
             </li>
             <li className="nav-item dropdown">
-              <a
+              <span
                 className="nav-link dropdown-toggle"
-                href="#"
                 id="navbarDropdown"
                 role="button"
                 data-toggle="dropdown"
@@ -66,7 +65,7 @@ const LandNav = (props) => {
                 aria-expanded="false"
               >
                 Links
-              </a>
+              </span>
               <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a
                   className="dropdown-item"
