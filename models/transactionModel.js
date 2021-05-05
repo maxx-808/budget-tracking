@@ -1,10 +1,15 @@
 const mongoose = require("mongoose");
 
 const transactionSchema = new mongoose.Schema({
+  title: {
+    type: String,
+    trim: true,
+    required: "Enter the name of this transaction",
+  },
   description: {
     type: String,
     trim: true,
-    required: "Enter description of transaction",
+    default: "No description",
   },
   value: {
     type: Number,
@@ -17,6 +22,10 @@ const transactionSchema = new mongoose.Schema({
   filter: {
     type: Array,
   },
+  id: {
+    type: String,
+    required: true,
+  },
 });
 
-module.exports = Transaction = mongoose.model("transaction", transactionSchema);
+module.exports = Trans = mongoose.model("transaction", transactionSchema);
