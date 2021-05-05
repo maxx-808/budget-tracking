@@ -37,7 +37,7 @@ const Contact = () => {
           If you have any questions or concerns feel free to send a message to
           us. Also if you have any comments or suggestions we welcome those as
           well. We love to hear back from our users and look at ways to improve
-          our application
+          our application.
         </h6>
         <h6>
           Please specify in the first sentence the topic of which your message

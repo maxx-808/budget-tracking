@@ -7,6 +7,7 @@ const LandNav = (props) => {
     user: undefined,
     token: undefined,
   });
+  
   useEffect(() => {
     const login = document.getElementById("login");
     const register = document.getElementById("register");

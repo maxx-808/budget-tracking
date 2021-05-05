@@ -8,6 +8,7 @@ const Home = () => {
   const history = useHistory();
   const page = useState({ page: "home" });
   const userId = userData.user.user.id;
+  const transactions = 
 
   useEffect(() => {
     if (!userData.user) history.push("/login");
