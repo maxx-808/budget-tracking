@@ -3,7 +3,8 @@ const Trans = require("../models/transactionModel");
 module.exports = {
   newTrans: async (req, res) => {
     try {
-      const { title, description, value, date, filter, id } = req.body;
+      const { title, description, value, date, filter } = req.body.data;
+      const id = req.body.id;
       if (!title || !value) {
         return res
           .status(400)
@@ -34,7 +35,7 @@ module.exports = {
   },
   getAll: async (req, res) => {
     try {
-      const id = req.body;
+      const id = req.query.id;
       if (!id) {
         res.status(400).json({
           msg:
@@ -42,28 +43,21 @@ module.exports = {
         });
       }
 
-      const exsistingId = await Trans.findOne({ id: id });
-      if (!exsistingId) {
-        res.status(401).json({
-          msg:
-            "No data has been returned. You either are not logged in or do not have any transactions saved.",
-        });
-      }
+      // const exsistingId = await Trans.find({ id: id });
+      // console.log("exsist", exsistingId);
+      // if (!exsistingId) {
+      //   res.status(401).json({
+      //     msg:
+      //       "No data has been returned. You either are not logged in or do not have any transactions saved.",
+      //   });
+      // }
 
-      const allUsersTrans = await Trans.find(
-        { id: exsistingId },
-        (err, data) => {
-          if (err) {
-            console.log("allUsersTrans:", err);
-          } else {
-            return data;
-          }
-        }
-      );
-
-      res.json(allUsersTrans);
+      const allUsersTrans = await Trans.find({
+        id: req.query.id,
+      });
+      res.json({ allUsersTrans });
     } catch (err) {
-      console.log(err);
+      console.log("alluserstrans err", err);
     }
   },
 };
