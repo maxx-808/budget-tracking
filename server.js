@@ -34,6 +34,7 @@ if (process.env.NODE_ENV == "production") {
 app.use("/api/users", require("./routes/userRoutes"));
 app.use("/api/auth", require("./routes/authRoutes"));
 app.use("/api/send", require("./routes/nodemailerRoutes"));
+app.use("/api/transactions", require("./routes/transactionRoutes"));
 
 app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
