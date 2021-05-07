@@ -24,7 +24,7 @@ const transactionSchema = new mongoose.Schema({
   },
   id: {
     type: String,
-    required: true,
+    required: "needs id",
   },
 });
 
