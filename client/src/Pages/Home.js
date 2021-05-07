@@ -4,52 +4,76 @@ import UserContext from "../Context/UserContext";
 import GetTrans from "../components/Services/GetTrans";
 import NewTrans from "../components/Services/NewTrans";
 import Nav from "../components/Navbar/Nav/Nav";
+import axios from "axios";
 
 const Home = () => {
   const { userData } = useContext(UserContext);
   const history = useHistory();
   const page = useState({ page: "home" });
   const [form, setForm] = useState();
-  const [allData, setAllData] = useState();
+  const [userTransactions, setUserTransactions] = useState([]);
 
   const onChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
-    console.log(form);
+  };
+  const onValueChange = (e) => {
+    e.preventDefault();
+    const num = e.target.value;
+    const cleanNum = parseFloat(num).toFixed(2);
+    setForm({ ...form, [e.target.name]: cleanNum });
+  };
+
+  const clearForm = () => {
+    document.querySelectorAll(".input").forEach((input) => (input.value = ""));
   };
 
   const transactions = async (req, res) => {
     try {
-      GetTrans(req.body);
-      return res;
+      const response = await GetTrans(req);
+      return response;
     } catch (err) {
-      console.log(err);
+      console.log("transactions home", err);
     }
   };
 
   const submit = async (e) => {
     e.preventDefault();
+
     try {
-      const amount = parseInt(form.value);
-      setForm({ ...form, value: amount });
-      const data = {
-        title: form.title,
-        description: form.description,
-        value: form.value,
-        id: userData.user.user.id,
-      };
-      await setAllData(data);
-      console.log(allData);
-      await NewTrans(allData);
+      await NewTrans({ data: form, id: userData.user.user.id });
+      clearForm();
+      const reGetAll = await transactions({ id: userData.user.user.id });
+      setUserTransactions(reGetAll);
     } catch (err) {
-      console.log(err);
+      console.log("submit home", err);
     }
   };
 
   useEffect(() => {
-    if (!userData.user) history.push("/login");
-    // else {
-    //   transactions(userData.user.user.id);
-    // }
+    if (!userData.user) {
+      history.push("/login");
+    }
+    let token = localStorage.getItem("auth-token");
+    if (token === null) {
+      localStorage.setItem("auth-token", "");
+    }
+    let cancelToken = axios.CancelToken;
+    let source = cancelToken.source();
+    (async () => {
+      try {
+        const userRes = await axios.get("/api/users", {
+          cancelToken: source.token,
+          headers: { "x-auth-token": token },
+        });
+        const allData = await transactions({ id: userRes.data.user.id });
+        setUserTransactions(allData);
+      } catch (err) {
+        axios.isCancel(err)
+          ? console.log("Request cancelled")
+          : console.log(err);
+      }
+    })();
+    return () => source.cancel();
   }, [userData.user, history]);
 
   return (
@@ -59,6 +83,7 @@ const Home = () => {
         <h1 style={{ paddingTop: "20px" }}>Add a New Transaction</h1>
         <label style={{ color: "black" }}>Name of Transaction</label>
         <input
+          className="input"
           style={{ color: "black", borderBottom: "1px solid grey" }}
           onChange={onChange}
           type="text"
@@ -66,6 +91,7 @@ const Home = () => {
         />
         <label style={{ color: "black" }}>Description</label>
         <input
+          className="input"
           style={{ color: "black", borderBottom: "1px solid grey" }}
           onChange={onChange}
           type="text"
@@ -73,10 +99,15 @@ const Home = () => {
         />
         <label style={{ color: "black" }}>value</label>
         <input
+          className="input"
           style={{ color: "black", borderBottom: "1px solid grey" }}
-          onChange={onChange}
+          onChange={onValueChange}
           type="number"
           name="value"
+          step="0.00"
+          onKeyDown={(evt) =>
+            ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()
+          }
         />
 
         <input
