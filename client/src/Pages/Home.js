@@ -10,9 +10,11 @@ const Home = () => {
   const history = useHistory();
   const page = useState({ page: "home" });
   const [form, setForm] = useState();
+  const [allData, setAllData] = useState();
 
   const onChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
+    console.log(form);
   };
 
   const transactions = async (req, res) => {
@@ -27,7 +29,17 @@ const Home = () => {
   const submit = async (e) => {
     e.preventDefault();
     try {
-      NewTrans(form);
+      const amount = parseInt(form.value);
+      setForm({ ...form, value: amount });
+      const data = {
+        title: form.title,
+        description: form.description,
+        value: form.value,
+        id: userData.user.user.id,
+      };
+      await setAllData(data);
+      console.log(allData);
+      await NewTrans(allData);
     } catch (err) {
       console.log(err);
     }
@@ -64,14 +76,17 @@ const Home = () => {
           style={{ color: "black", borderBottom: "1px solid grey" }}
           onChange={onChange}
           type="number"
-          name="title"
+          name="value"
         />
-        <label style={{ color: "black" }}>Name of Transaction</label>
+
         <input
-          style={{ color: "black", borderBottom: "1px solid grey" }}
-          onChange={onChange}
-          type="text"
-          name="title"
+          style={{
+            marginTop: "20px",
+            backgroundColor: "lightGrey",
+            borderRadius: "10px",
+          }}
+          type="submit"
+          name="Register"
         />
       </form>
     </div>

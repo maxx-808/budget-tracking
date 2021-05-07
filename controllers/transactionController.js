@@ -9,7 +9,7 @@ module.exports = {
           .status(400)
           .json({ msg: "Not all required fields were entered" });
       }
-      if (!date || !id) {
+      if (!id) {
         res.status(401).json({
           msg:
             "Something might be wrong, please contact developers via contact page to report problem.",
