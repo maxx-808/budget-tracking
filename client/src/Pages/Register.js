@@ -45,7 +45,7 @@ const Register = () => {
   return (
     <div>
       <LandNav page={page} />
-      <form onSubmit={submit} className="reg-form">
+      <form onSubmit={submit} className="madeForm">
         <h1 style={{ paddingTop: "20px" }}>SignUp</h1>
         <label style={{ color: "black" }}>First Name</label>
         <input
