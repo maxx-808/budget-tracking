@@ -22,7 +22,7 @@ As one of my first personal projects, I wanted to create something that I would 
 
 An application to seamlessly track your income and expenses with easy to read graphs and tables that allow you to look over your spending and what you spend on.
 
-###BASIC TASK TILL COMPLETION:
+### BASIC TASK TILL COMPLETION:
 1. get app deployed to heroku (completed)
 2. have password encryption (completed)
 3. implement email verification (completed)
