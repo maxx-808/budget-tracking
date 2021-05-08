@@ -7,6 +7,7 @@ import axios from "axios";
 
 const Home = () => {
   const { userData } = useContext(UserContext);
+  const personId = userData.user.user.id;
   const history = useHistory();
   const page = useState({ page: "home" });
   const [form, setForm] = useState();
@@ -49,10 +50,10 @@ const Home = () => {
     try {
       await axios.post("/api/transactions/new/", {
         data: form,
-        id: userData.user.user.id,
+        id: personId,
       });
       clearForm();
-      const reGetAll = await transactions({ id: userData.user.user.id });
+      const reGetAll = await transactions({ id: personId });
       setUserTransactions(reGetAll);
     } catch (err) {
       console.log("submit home", err);
