@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 const Confirm = (props) => {
+  console.log(props);
   if (props.match.path === "/confirm/:confirmationCode") {
     const data = props.match.params.confirmationCode;
     const verifyUser = async (confirmCode) => {
