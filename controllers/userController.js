@@ -78,8 +78,8 @@ module.exports = {
           subject: "Please confirm your account",
           html: `<h1>Email Confirmation</h1>
           <h2>Hello ${newUser.fName},</h2>
-          <p>Thank you for subscribing. Please confirm your email by clicking on the following link</p>
-          <a href=http://localhost:3000/confirm/${newUser.confirmation}> Click here</a>
+          <p>Thank you for signing up. Please confirm your email by clicking on the link below:</p>
+          <a href=https://budget-tracker727.herokuapp.com/confirm/${newUser.confirmation}>Confirm Email Here</a>
           `,
         });
       };
@@ -139,15 +139,18 @@ module.exports = {
 
   confirmation: async (req, res, next) => {
     try {
+      console.log("confirmation has started");
       const user = await User.findOne({
         confirmation: req.params.confirmationCode,
       });
 
       if (!user) {
+        console.log("could not find user");
         return res.status(404).json({ msg: "User Not Found." });
       }
       user.status = "active";
       user.save((err) => {
+        console.log("confirmation user saving");
         if (err) {
           res.status(500).json({ msg: err });
         }
