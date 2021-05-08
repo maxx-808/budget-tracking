@@ -1,10 +1,20 @@
 import React from "react";
-import VerifyUser from "../components/Services/ConfirmAuth";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
-const Confirm = (props) => {
+const Confirm = async (props) => {
   if (props.match.path === "/confirm/:confirmationCode") {
-    VerifyUser(props.match.params.confirmationCode);
+    const data = props.match.params.confirmationCode;
+    const verifyUser = async (confirmCode) => {
+      try {
+        const verify = await axios.post(`/api/auth/confirm/${confirmCode}`);
+        console.log("verify post call", verify);
+        return verify.data;
+      } catch (err) {
+        console.log("verify user err: ", err);
+      }
+    };
+    verifyUser(data);
   }
 
   return (
