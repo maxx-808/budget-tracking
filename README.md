@@ -22,6 +22,28 @@ As one of my first personal projects, I wanted to create something that I would 
 
 An application to seamlessly track your income and expenses with easy to read graphs and tables that allow you to look over your spending and what you spend on.
 
+###BASIC TASK TILL COMPLETION:
+1. get app deployed to heroku (completed)
+2. have password encryption (completed)
+3. implement email verification (completed)
+4. implement contact form sending messages straight to an email (completed)
+5. allow app to work seamlessly on localhost as well as on heroku (completed as of 5/7/2021 with each push I will be trying my best to keep it working live)
+6. check that axios calls to backend for setting a new transaction, getting all transactions, setting new user, logging in, confirming user, getting user data, etc (check)
+7. adding more miscellanious pages such as an about page and terms and conditions etc.
+8. creating a table to view all transactions and their info
+9. creating a filter and sort function for table
+10. adding edit and delete functions to transactions
+11. creating a graph to show transactions during a certain time period
+12. adding an easy to use function that allows one to determine whether the transactions is income or expense
+13. adding easy to use filter words to each transaction so that user can sort their transactions into topics such as: paychecks, food, entertainment, health, social outing etc.
+14. adding a monthly spread sheet possibly emailed to user detailing the total income and expense of the month as well as other useful information
+15. adding interface notifications for functions ran while using app such as: pop up notification for when you add a new transaction
+16. adding profile page where users can edit their password and email as well as ways to delete whole account including transactions
+17. adding giving the front end more styling and polished look
+18. adding animated styling for moving parts
+19. adding function to recognize repeated transactions such as subscriptions
+currently all I could think up at the moment. marked completed at the end of task if task has been completed in both deployed and repo versions
+
 <a name="tech-used"></a>
 
 ## Technologies Used:
@@ -59,7 +81,7 @@ Last, for contact form you will need a bit more work done to use this on your ow
 
 `CLIENT_REFRESH_TOKEN="your refresh token from google user content"`
 
-After that has been done, make sure you are not already running any servers on port 3000 or 5000 (unless you change this projects ports) then you can run `npm run dev` in the terminal which should launch the application.
+After that has been done, make sure you are not already running any servers on port 3000 or 5000 (unless you change this projects ports) then you can run `npm run dev` in the terminal which should launch the application. Also There are a few things needed if you are to run this on a deployed app. Be sure to look out for logged errors. Running `heroku logs --tail` was extremely helpful in fullfilling all of OAuth and googles requirements to get all mail functions working.
 
 <a name="usage-information"></a>
 
@@ -79,7 +101,7 @@ https://www.github.com/maxx-808
 
 ## Github Deployable URL:
 
-Not yet public as off 5/2/2021 still in the early stages of development.
+Not yet public as off 5/7/2021 still in the early stages of development.
 
 ## Email Address:
 
