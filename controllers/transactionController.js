@@ -53,7 +53,7 @@ module.exports = {
       // }
 
       const allUsersTrans = await Trans.find({
-        id: req.query.id,
+        id: id,
       });
       res.json({ allUsersTrans });
     } catch (err) {

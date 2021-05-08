@@ -7,7 +7,9 @@ require("dotenv").config();
 module.exports = {
   register: async (req, res) => {
     try {
-      const { fName, lName, email, password, passwordCheck } = req.body;
+      const { fName, lName, email, password, passwordCheck } = req.body.user;
+      const location = req.body.location;
+      console.log(location);
       if (!fName || !lName || !email || !password || !passwordCheck) {
         return res.status(400).json({ msg: "Must enter all fields" });
       }
@@ -70,6 +72,12 @@ module.exports = {
       //
       //
       //CHANGE HREF WHEN DEPLOYING
+      // let url = "";
+      // if (location === "http://localhost:3000") {
+      //   url = "localhost:3000";
+      // } else {
+      //   url = "https://budget-tracker727.herokuapp.com";
+      // }
       const sendConfirmationEmail = () => {
         console.log("Check");
         transport.sendMail({
@@ -79,7 +87,7 @@ module.exports = {
           html: `<h1>Email Confirmation</h1>
           <h2>Hello ${newUser.fName},</h2>
           <p>Thank you for signing up. Please confirm your email by clicking on the link below:</p>
-          <a href=https://budget-tracker727.herokuapp.com/confirm/${newUser.confirmation}>Confirm Email Here</a>
+          <a href=${location}/confirm/${newUser.confirmation}>Confirm Email Here</a>
           `,
         });
       };
