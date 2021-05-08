@@ -9,6 +9,7 @@ const Register = () => {
   const { userData, setUserData } = useContext(userContext);
   const history = useHistory();
   const page = useState({ page: "register" });
+  const location = window.location.origin;
 
   const onChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -27,7 +28,10 @@ const Register = () => {
   const submit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("/api/users/register", form);
+      await axios.post("/api/users/register", {
+        user: form,
+        location: location,
+      });
     } catch (err) {
       console.log(err.response);
 

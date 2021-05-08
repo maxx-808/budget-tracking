@@ -1,8 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import UserContext from "../Context/UserContext";
-import GetTrans from "../components/Services/GetTrans";
-import NewTrans from "../components/Services/NewTrans";
+
 import Nav from "../components/Navbar/Nav/Nav";
 import axios from "axios";
 
@@ -28,19 +27,30 @@ const Home = () => {
   };
 
   const transactions = async (req, res) => {
+    let cancelToken = axios.CancelToken;
+    let source = cancelToken.source();
     try {
-      const response = await GetTrans(req);
-      return response;
+      const all = await axios.get("/api/transactions/", {
+        cancelToken: source.token,
+        params: req,
+      });
+      return all.data.allUsersTrans;
     } catch (err) {
-      console.log("transactions home", err);
+      axios.isCancel(err)
+        ? console.log("Request cancelled")
+        : console.log("transactions home", err);
     }
+    return () => source.cancel();
   };
 
   const submit = async (e) => {
     e.preventDefault();
 
     try {
-      await NewTrans({ data: form, id: userData.user.user.id });
+      await axios.post("/api/transactions/new/", {
+        data: form,
+        id: userData.user.user.id,
+      });
       clearForm();
       const reGetAll = await transactions({ id: userData.user.user.id });
       setUserTransactions(reGetAll);
