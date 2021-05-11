@@ -115,7 +115,7 @@ const Home = () => {
           onChange={onValueChange}
           type="number"
           name="value"
-          step="0.00"
+          step="0.01"
           onKeyDown={(evt) =>
             ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()
           }
