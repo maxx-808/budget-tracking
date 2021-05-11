@@ -7,7 +7,7 @@ const LandNav = (props) => {
     user: undefined,
     token: undefined,
   });
-  
+
   useEffect(() => {
     const login = document.getElementById("login");
     const register = document.getElementById("register");
@@ -24,6 +24,7 @@ const LandNav = (props) => {
   const logout = () => {
     setUserData({ token: undefined, user: undefined });
     localStorage.setItem("auth-token", "");
+    localStorage.setItem("id", "");
   };
 
   return (

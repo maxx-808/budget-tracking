@@ -7,11 +7,11 @@ import axios from "axios";
 
 const Home = () => {
   const { userData } = useContext(UserContext);
-  const personId = userData.user.user.id;
   const history = useHistory();
   const page = useState({ page: "home" });
   const [form, setForm] = useState();
   const [userTransactions, setUserTransactions] = useState([]);
+  const personId = localStorage.getItem("id");
 
   const onChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });

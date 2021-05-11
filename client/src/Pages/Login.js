@@ -27,6 +27,7 @@ const Login = () => {
       });
 
       localStorage.setItem("auth-token", data.token);
+      localStorage.setItem("id", data.user.id);
       history.push("/");
     } catch (err) {
       console.log(err.response);

@@ -11,6 +11,7 @@ const Nav = () => {
   const logout = () => {
     setUserData({ token: undefined, user: undefined });
     localStorage.setItem("auth-token", "");
+    localStorage.setItem("id", "");
   };
   return (
     <div>
