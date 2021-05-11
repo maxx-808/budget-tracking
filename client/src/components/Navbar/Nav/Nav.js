@@ -94,7 +94,7 @@ const Nav = () => {
               </div>
             </li>
           </ul>
-          <div className="form-inline my-2 my-lg-0">
+          <div className="my-2 my-lg-0">
             <ul className="navbar-nav mr-auto">
               <li id="login" className="nav-item active">
                 <a className="nav-link" href="#">
