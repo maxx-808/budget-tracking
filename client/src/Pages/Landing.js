@@ -6,7 +6,7 @@ import Auth from "../components/Auth/Auth";
 const Landing = () => {
   const page = useState({ page: "landing" });
   return (
-    <div>
+    <div className="page">
       <Auth>
         <LandNav page={page} />
         <h1>Welcome to my Budget Tracker</h1>

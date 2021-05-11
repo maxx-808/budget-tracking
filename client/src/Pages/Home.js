@@ -88,7 +88,7 @@ const Home = () => {
   }, [userData.user, history]);
 
   return (
-    <div>
+    <div className="page">
       <Nav page={page} />
       <form onSubmit={submit} className="newForm">
         <div className="left-wording">

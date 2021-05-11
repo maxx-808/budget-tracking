@@ -50,7 +50,7 @@ const Login = () => {
   }, [userData.user, history]);
 
   return (
-    <div>
+    <div className="page">
       <LandNav page={page} />
       <form onSubmit={submitLoginForm} className="login-form">
         <h1 style={{ padding: "20px" }}>Login</h1>

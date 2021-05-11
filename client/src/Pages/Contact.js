@@ -29,7 +29,7 @@ const Contact = () => {
   };
 
   return (
-    <div>
+    <div className="page">
       <LandNav page={page} />
       <div className="left-wording">
         <h1>Contact the developer</h1>

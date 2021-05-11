@@ -47,7 +47,7 @@ const Register = () => {
   }, [userData.user, history]);
 
   return (
-    <div>
+    <div className="page">
       <LandNav page={page} />
       <form onSubmit={submit} className="madeForm">
         <h1 style={{ paddingTop: "20px" }}>SignUp</h1>

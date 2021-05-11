@@ -26,7 +26,7 @@ const Confirm = (props) => {
   }
 
   return (
-    <div className="container">
+    <div className="container page">
       <header className="jumbotron">
         <h3>
           <strong>Account confirmed!</strong>
