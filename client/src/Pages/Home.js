@@ -8,7 +8,6 @@ import axios from "axios";
 const Home = () => {
   const { userData } = useContext(UserContext);
   const history = useHistory();
-  const page = useState({ page: "home" });
   const [form, setForm] = useState();
   const [userTransactions, setUserTransactions] = useState([]);
   const personId = localStorage.getItem("id");
@@ -89,7 +88,6 @@ const Home = () => {
 
   return (
     <div className="page">
-      <Nav page={page} />
       <form onSubmit={submit} className="newForm">
         <div className="left-wording">
           <h1>Add a New Transaction</h1>
