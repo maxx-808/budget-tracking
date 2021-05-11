@@ -11,12 +11,16 @@ import Confirm from "./Pages/Confirm";
 import Landing from "./Pages/Landing";
 import Contact from "./Pages/Contact";
 import Footer from "./components/Footer/Footer";
+import Nav from "./components/Navbar/Nav/Nav";
+import LandNav from "./components/Navbar/LandNav/LandNav";
 
 function App() {
   const [userData, setUserData] = useState({
     user: undefined,
     token: undefined,
   });
+  const page = window.location.pathname;
+  console.log(page);
 
   const checkLoggedIn = async () => {
     let token = localStorage.getItem("auth-token");
@@ -39,6 +43,7 @@ function App() {
 
   return (
     <div className="App">
+      {!userData.user ? <LandNav page={page} /> : <Nav page={page} />}
       <Router>
         <userContext.Provider value={{ userData, setUserData }}>
           <Switch>

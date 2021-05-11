@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../Nav.css";
 
 const LandNav = (props) => {
-  const currentPage = props.page[0].page;
+  const currentPage = window.location.pathname;
   const [userData, setUserData] = useState({
     user: undefined,
     token: undefined,
@@ -11,21 +11,18 @@ const LandNav = (props) => {
   useEffect(() => {
     const login = document.getElementById("login");
     const register = document.getElementById("register");
-    const logout = document.getElementById("logout");
-    if (currentPage === "login") {
+    if (currentPage === "/login") {
       login.classList.add("hidden");
-    } else if (currentPage === "register") {
+    } else if (currentPage === "/register") {
       register.classList.add("hidden");
-    } else if (userData.user === undefined || userData.token === undefined) {
-      logout.classList.add("hidden");
     }
   });
 
-  const logout = () => {
-    setUserData({ token: undefined, user: undefined });
-    localStorage.setItem("auth-token", "");
-    localStorage.setItem("id", "");
-  };
+  // const logout = () => {
+  //   setUserData({ token: undefined, user: undefined });
+  //   localStorage.setItem("auth-token", "");
+  //   localStorage.setItem("id", "");
+  // };
 
   return (
     <div>
@@ -120,11 +117,11 @@ const LandNav = (props) => {
                   Register Now!
                 </a>
               </li>
-              <li id="logout" className="nav-item active">
+              {/* <li id="logout" className="nav-item active">
                 <a className="nav-link" href="/" onClick={logout}>
                   Log Out
                 </a>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>
