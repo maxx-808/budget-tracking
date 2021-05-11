@@ -91,26 +91,31 @@ const Home = () => {
     <div>
       <Nav page={page} />
       <form onSubmit={submit} className="newForm">
-        <h1 style={{ paddingTop: "20px" }}>Add a New Transaction</h1>
-        <label style={{ color: "black" }}>Name of Transaction</label>
+        <div className="left-wording">
+          <h1>Add a New Transaction</h1>
+          <h6>
+            Enter information about the transaction. Provide a brief name of
+            transaction (ex. car payment, mcdonalds, etc.)
+          </h6>
+          <h6>
+            When adding the transaction, it will be added with the same date as
+            the day you enter it in
+          </h6>
+        </div>
+
+        <label className="newTransLabel">Name of Transaction</label>
         <input
           className="input"
+          id="transNameInput"
           style={{ color: "black", borderBottom: "1px solid grey" }}
           onChange={onChange}
           type="text"
           name="title"
         />
-        <label style={{ color: "black" }}>Description</label>
+        <label className="newTransLabel">value</label>
         <input
           className="input"
-          style={{ color: "black", borderBottom: "1px solid grey" }}
-          onChange={onChange}
-          type="text"
-          name="description"
-        />
-        <label style={{ color: "black" }}>value</label>
-        <input
-          className="input"
+          id="valueInput"
           style={{ color: "black", borderBottom: "1px solid grey" }}
           onChange={onValueChange}
           type="number"
@@ -119,6 +124,15 @@ const Home = () => {
           onKeyDown={(evt) =>
             ["e", "E", "+", "-"].includes(evt.key) && evt.preventDefault()
           }
+        />
+        <label className="newTransLabel">Description</label>
+        <textarea
+          className="input"
+          id="descriptionInput"
+          style={{ color: "black", borderBottom: "1px solid grey" }}
+          onChange={onChange}
+          type="text"
+          name="description"
         />
 
         <input

@@ -31,7 +31,7 @@ const Contact = () => {
   return (
     <div>
       <LandNav page={page} />
-      <div id="contact-about">
+      <div className="left-wording">
         <h1>Contact the developer</h1>
         <h6>
           If you have any questions or concerns feel free to send a message to
