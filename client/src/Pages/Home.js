@@ -85,7 +85,7 @@ const Home = () => {
     })();
     return () => source.cancel();
   }, [userData.user, history]);
-
+  console.log(userTransactions);
   return (
     <div className="page">
       <form onSubmit={submit} className="newForm">
@@ -143,6 +143,15 @@ const Home = () => {
           name="Register"
         />
       </form>
+      <div>
+        {userTransactions.map((transaction, index) => (
+          <div>
+            <h4>{transaction.title}</h4>
+            <p>{transaction.description}</p>
+            <p>{transaction.date.slice(0, 10)}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
