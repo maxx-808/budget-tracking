@@ -20,7 +20,7 @@ function App() {
     token: undefined,
   });
   const page = window.location.pathname;
-  console.log(page);
+  console.log(page)
 
   const checkLoggedIn = async () => {
     let token = localStorage.getItem("auth-token");
