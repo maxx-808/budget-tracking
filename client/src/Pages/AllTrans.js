@@ -54,14 +54,29 @@ const AllTrans = () => {
   }, [userData.user, history]);
 
   return (
-    <div>
-      {userTransactions.map((transaction, index) => (
-        <div key={index}>
-          <h4>{transaction.title}</h4>
-          <p>{transaction.description}</p>
-          <p>{transaction.date.slice(0, 10)}</p>
-        </div>
-      ))}
+    <div className="page">
+      <table>
+        <thead>
+          <tr>
+            <th>Transaction</th>
+            <th>Description</th>
+            <th>Date</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          {userTransactions.map((transaction, index) => (
+            <tr key={index}>
+              <td>{transaction.title}</td>
+              <td>{transaction.description}</td>
+              <td>{transaction.date.slice(0, 10)}</td>
+              <td>
+                <strong>$</strong> {transaction.value}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };

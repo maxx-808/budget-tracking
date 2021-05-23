@@ -108,3 +108,15 @@ body {
   position: relative;
   margin-bottom: 80px;
 }
+
+th,
+td {
+  border: black 2px solid !important;
+  padding: 5px 10px 5px 10px;
+}
+
+table {
+  width: 40%;
+  margin-left: 30%;
+  margin-right: 30%;
+}
