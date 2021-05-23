@@ -28,9 +28,9 @@ An application to seamlessly track your income and expenses with easy to read gr
 3. implement email verification (completed)
 4. implement contact form sending messages straight to an email (completed)
 5. allow app to work seamlessly on localhost as well as on heroku (completed as of 5/7/2021 with each push I will be trying my best to keep it working live)
-6. check that axios calls to backend for setting a new transaction, getting all transactions, setting new user, logging in, confirming user, getting user data, etc (check)
+6. check that axios calls to backend for setting a new transaction, getting all transactions, setting new user, logging in, confirming user, getting user data, etc (completed as of 5/22/2021. Will be updating if anything changes with newer pushes)
 7. adding more miscellanious pages such as an about page and terms and conditions etc.
-8. creating a table to view all transactions and their info
+8. creating a table to view all transactions and their info (completed in test branch 5/22/2021. continuing to grow this page until pushing to live app)
 9. creating a filter and sort function for table
 10. adding edit and delete functions to transactions
 11. creating a graph to show transactions during a certain time period
