@@ -64,26 +64,18 @@ const AllTrans = () => {
           aria-haspopup="true"
           aria-expanded="false"
         >
-          Links
+          Filter
         </span>
         <div
           className="dropdown-menu"
           id="filterDropDown"
           aria-labelledby="navbarDropdown"
         >
-          <a
-            className="dropdown-item"
-            href="https://www.github.com/maxx-808/budget-tracking"
-            target="blank"
-          >
-            Github Repo
+          <a className="dropdown-item" href="/transactions/value">
+            By Value
           </a>
-          <a
-            className="dropdown-item"
-            href="https://www.github.com/maxx-808"
-            target="blank"
-          >
-            Github Profile
+          <a className="dropdown-item" href="/transactions/title">
+            By Title
           </a>
           <a
             className="dropdown-item"
