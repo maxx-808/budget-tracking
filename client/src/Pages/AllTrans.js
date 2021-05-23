@@ -71,10 +71,10 @@ const AllTrans = () => {
           id="filterDropDown"
           aria-labelledby="navbarDropdown"
         >
-          <a className="dropdown-item" href="/transactions/value">
+          <a className="dropdown-item" href="/transactions_value">
             By Value
           </a>
-          <a className="dropdown-item" href="/transactions/title">
+          <a className="dropdown-item" href="/transactions_title">
             By Title
           </a>
           <a
