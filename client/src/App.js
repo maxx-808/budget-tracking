@@ -14,6 +14,8 @@ import AllTrans from "./Pages/AllTrans";
 import Footer from "./components/Footer/Footer";
 import Nav from "./components/Navbar/Nav/Nav";
 import LandNav from "./components/Navbar/LandNav/LandNav";
+import AllTransTitle from "./Pages/AllTrans.title";
+import AllTransValue from "./Pages/AllTrans.val";
 
 function App() {
   const [userData, setUserData] = useState({
@@ -53,7 +55,10 @@ function App() {
             <Route path="/register" component={Register} />
             <Route path="/login" component={Login} />
             <Route path="/confirm/:confirmationCode" component={Confirm} />
+
             <Route path="/transactions" component={AllTrans} />
+            <Route path="/transactions_title" component={AllTransTitle} />
+            <Route path="/transactions_value" component={AllTransValue} />
 
             <Route path="/contact" component={Contact} />
           </Switch>
