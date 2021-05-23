@@ -25,4 +25,16 @@ const AllTrans = () => {
     }
     return () => source.cancel();
   };
+
+  useEffect(() => {
+    if (!userData.user) {
+      history.push("/login");
+    }
+    let token = localStorage.getItem("auth-token");
+    if (token === null) {
+      localStorage.setItem("auth-token", "");
+    }
+  });
 };
+
+export default AllTrans;
