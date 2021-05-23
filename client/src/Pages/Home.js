@@ -1,15 +1,13 @@
 import React, { useState, useContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import UserContext from "../Context/UserContext";
-
-import Nav from "../components/Navbar/Nav/Nav";
 import axios from "axios";
 
 const Home = () => {
   const { userData } = useContext(UserContext);
   const history = useHistory();
   const [form, setForm] = useState();
-  const [userTransactions, setUserTransactions] = useState([]);
+  // const [userTransactions, setUserTransactions] = useState([]);
   const personId = localStorage.getItem("id");
 
   const onChange = (e) => {
@@ -26,22 +24,22 @@ const Home = () => {
     document.querySelectorAll(".input").forEach((input) => (input.value = ""));
   };
 
-  const transactions = async (req, res) => {
-    let cancelToken = axios.CancelToken;
-    let source = cancelToken.source();
-    try {
-      const all = await axios.get("/api/transactions/", {
-        cancelToken: source.token,
-        params: req,
-      });
-      return all.data.allUsersTrans;
-    } catch (err) {
-      axios.isCancel(err)
-        ? console.log("Request cancelled")
-        : console.log("transactions home", err);
-    }
-    return () => source.cancel();
-  };
+  // const transactions = async (req, res) => {
+  //   let cancelToken = axios.CancelToken;
+  //   let source = cancelToken.source();
+  //   try {
+  //     const all = await axios.get("/api/transactions/", {
+  //       cancelToken: source.token,
+  //       params: req,
+  //     });
+  //     return all.data.allUsersTrans;
+  //   } catch (err) {
+  //     axios.isCancel(err)
+  //       ? console.log("Request cancelled")
+  //       : console.log("transactions home", err);
+  //   }
+  //   return () => source.cancel();
+  // };
 
   const submit = async (e) => {
     e.preventDefault();
@@ -52,8 +50,8 @@ const Home = () => {
         id: personId,
       });
       clearForm();
-      const reGetAll = await transactions({ id: personId });
-      setUserTransactions(reGetAll);
+      // const reGetAll = await transactions({ id: personId });
+      // setUserTransactions(reGetAll);
     } catch (err) {
       console.log("submit home", err);
     }
@@ -67,25 +65,25 @@ const Home = () => {
     if (token === null) {
       localStorage.setItem("auth-token", "");
     }
-    let cancelToken = axios.CancelToken;
-    let source = cancelToken.source();
-    (async () => {
-      try {
-        const userRes = await axios.get("/api/users", {
-          cancelToken: source.token,
-          headers: { "x-auth-token": token },
-        });
-        const allData = await transactions({ id: userRes.data.user.id });
-        setUserTransactions(allData);
-      } catch (err) {
-        axios.isCancel(err)
-          ? console.log("Request cancelled")
-          : console.log(err);
-      }
-    })();
-    return () => source.cancel();
+    // let cancelToken = axios.CancelToken;
+    // let source = cancelToken.source();
+    // (async () => {
+    //   try {
+    //     const userRes = await axios.get("/api/users", {
+    //       cancelToken: source.token,
+    //       headers: { "x-auth-token": token },
+    //     });
+    //     const allData = await transactions({ id: userRes.data.user.id });
+    //     setUserTransactions(allData);
+    //   } catch (err) {
+    //     axios.isCancel(err)
+    //       ? console.log("Request cancelled")
+    //       : console.log(err);
+    //   }
+    // })();
+    // return () => source.cancel();
   }, [userData.user, history]);
-  console.log(userTransactions);
+
   return (
     <div className="page">
       <form onSubmit={submit} className="newForm">
@@ -143,15 +141,15 @@ const Home = () => {
           name="Register"
         />
       </form>
-      <div>
+      {/* <div>
         {userTransactions.map((transaction, index) => (
-          <div>
+          <div key={index}>
             <h4>{transaction.title}</h4>
             <p>{transaction.description}</p>
             <p>{transaction.date.slice(0, 10)}</p>
           </div>
         ))}
-      </div>
+      </div> */}
     </div>
   );
 };

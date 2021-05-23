@@ -6,7 +6,7 @@ import axios from "axios";
 const AllTrans = () => {
   const { userData } = useContext(UserContext);
   const history = useHistory();
-  const [userTransactions, setUserTransactions] = useState();
+  const [userTransactions, setUserTransactions] = useState([]);
   const personId = localStorage.getItem("id");
 
   const transactions = async (req, res) => {
@@ -27,14 +27,43 @@ const AllTrans = () => {
   };
 
   useEffect(() => {
-    if (!userData.user) {
+    if (!userData) {
       history.push("/login");
     }
     let token = localStorage.getItem("auth-token");
     if (token === null) {
       localStorage.setItem("auth-token", "");
     }
-  });
+    let cancelToken = axios.CancelToken;
+    let source = cancelToken.source();
+    (async () => {
+      try {
+        const userRes = await axios.get("/api/users", {
+          cancelToken: source.token,
+          headers: { "x-auth-token": token },
+        });
+        const allData = await transactions({ id: userRes.data.user.id });
+        setUserTransactions(allData);
+      } catch (err) {
+        axios.isCancel(err)
+          ? console.log("Request cancelled")
+          : console.log(err);
+      }
+    })();
+    return () => source.cancel();
+  }, [userData.user, history]);
+
+  return (
+    <div>
+      {userTransactions.map((transaction, index) => (
+        <div key={index}>
+          <h4>{transaction.title}</h4>
+          <p>{transaction.description}</p>
+          <p>{transaction.date.slice(0, 10)}</p>
+        </div>
+      ))}
+    </div>
+  );
 };
 
 export default AllTrans;
