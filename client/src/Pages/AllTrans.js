@@ -55,11 +55,50 @@ const AllTrans = () => {
 
   return (
     <div className="page">
+      <div className="nav-item dropdown">
+        <span
+          className="nav-link dropdown-toggle"
+          id="dropdown"
+          role="button"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Links
+        </span>
+        <div
+          className="dropdown-menu"
+          id="filterDropDown"
+          aria-labelledby="navbarDropdown"
+        >
+          <a
+            className="dropdown-item"
+            href="https://www.github.com/maxx-808/budget-tracking"
+            target="blank"
+          >
+            Github Repo
+          </a>
+          <a
+            className="dropdown-item"
+            href="https://www.github.com/maxx-808"
+            target="blank"
+          >
+            Github Profile
+          </a>
+          <a
+            className="dropdown-item"
+            href="https://www.linkedin.com/in/max-higa-2460351b4/"
+            target="blank"
+          >
+            LinkedIn
+          </a>
+        </div>
+      </div>
       <table>
         <thead>
           <tr>
             <th>Transaction</th>
-            <th>Description</th>
+            <th id="descr">Description</th>
             <th>Date</th>
             <th>Amount</th>
           </tr>
