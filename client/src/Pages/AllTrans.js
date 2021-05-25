@@ -7,7 +7,6 @@ const AllTrans = () => {
   const { userData } = useContext(UserContext);
   const history = useHistory();
   const [userTransactions, setUserTransactions] = useState([]);
-  const personId = localStorage.getItem("id");
 
   const transactions = async (req, res) => {
     let cancelToken = axios.CancelToken;
@@ -76,13 +75,6 @@ const AllTrans = () => {
           </a>
           <a className="dropdown-item" href="/transactions_title">
             By Title
-          </a>
-          <a
-            className="dropdown-item"
-            href="https://www.linkedin.com/in/max-higa-2460351b4/"
-            target="blank"
-          >
-            LinkedIn
           </a>
         </div>
       </div>

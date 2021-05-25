@@ -80,13 +80,6 @@ const AllTransTitle = () => {
           <a className="dropdown-item" href="/transactions_title">
             By Title
           </a>
-          <a
-            className="dropdown-item"
-            href="https://www.linkedin.com/in/max-higa-2460351b4/"
-            target="blank"
-          >
-            LinkedIn
-          </a>
         </div>
       </div>
       <table>
