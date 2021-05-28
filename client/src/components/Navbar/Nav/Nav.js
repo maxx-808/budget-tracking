@@ -35,8 +35,6 @@ const Nav = (props) => {
       const t = document.querySelector("a[href='/profile'");
       t.classList.add("selected");
     }
-
-    return () => {};
   }, [props.page]);
   return (
     <div>

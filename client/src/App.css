@@ -62,9 +62,9 @@ body {
   width: 100%;
 }
 
-#contact-form {
+.formInputs {
   align-items: center;
-  height: 500px;
+  height: auto;
   margin-top: 20px;
   margin-bottom: 100px;
   margin-left: 25%;
@@ -90,6 +90,13 @@ body {
   height: auto;
   overflow-wrap: break-word;
   border: black 2px solid !important;
+}
+
+.loginLabels {
+  color: black;
+  margin: 5px;
+  margin-left: 10px;
+  font-weight: bold;
 }
 
 #valueInput,

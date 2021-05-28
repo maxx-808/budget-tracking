@@ -120,7 +120,7 @@ const LandNav = (props) => {
             <ul className="navbar-nav mr-auto">
               <li id="login" className="nav-item active">
                 <a className="nav-link" href="/login">
-                  Already have an account? Login here!
+                  Login
                 </a>
               </li>
               <li id="register" className="nav-item active">

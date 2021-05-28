@@ -7,7 +7,6 @@ import axios from "axios";
 
 const Contact = () => {
   const page = useState({ page: "contact" });
-  console.log(window.location.pathname);
   const [contact, setContact] = useState({
     name: "",
     email: "",
@@ -46,7 +45,7 @@ const Contact = () => {
           and to better log all of the messages.
         </h6>
       </div>
-      <form id="contact-form" onSubmit={handleSubmit} method="POST">
+      <form className="formInputs" onSubmit={handleSubmit} method="POST">
         <div className="form-group">
           <label htmlFor="name">Name</label>
           <input

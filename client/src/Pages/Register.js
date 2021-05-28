@@ -48,50 +48,64 @@ const Register = () => {
 
   return (
     <div className="page">
-      <form onSubmit={submit} className="madeForm">
+      <form onSubmit={submit} className="formInputs">
         <h1 style={{ paddingTop: "20px" }}>SignUp</h1>
-        <label style={{ color: "black" }}>First Name</label>
-        <input
-          style={{ color: "black", borderBottom: "1px solid grey" }}
-          onChange={onChange}
-          type="text"
-          name="fName"
-        />
-        <label style={{ color: "black" }}>Last Name</label>
-        <input
-          style={{ color: "black", borderBottom: "1px solid grey" }}
-          onChange={onChange}
-          type="text"
-          name="lName"
-        />
-
-        <p id="registerErr" className="hidden"></p>
-        <label style={{ color: "black" }}>Email</label>
-        <input
-          style={{ color: "black", borderBottom: "1px solid grey" }}
-          onChange={onChange}
-          type="text"
-          name="email"
-        />
-        <label style={{ color: "black" }}>Password</label>
-        <input
-          style={{ color: "black", borderBottom: "1px solid grey" }}
-          onChange={onChange}
-          type="password"
-          name="password"
-          id="inputPass"
-        />
-        <label style={{ color: "black" }}>Password Check</label>
-        <input
-          style={{ color: "black", borderBottom: "1px solid grey" }}
-          onChange={onChange}
-          type="password"
-          name="passwordCheck"
-          id="inputCheck"
-        />
-        <p className="hidden err" id="passCheck">
-          Password doesn't Match
-        </p>
+        <div className="form-group">
+          <label style={{ color: "black" }}>First Name</label>
+          <input
+            style={{ color: "black", borderBottom: "1px solid grey" }}
+            onChange={onChange}
+            type="text"
+            name="fName"
+            className="form-control"
+          />
+        </div>
+        <div className="form-group">
+          <label style={{ color: "black" }}>Last Name</label>
+          <input
+            style={{ color: "black", borderBottom: "1px solid grey" }}
+            onChange={onChange}
+            type="text"
+            name="lName"
+            className="form-control"
+          />
+        </div>
+        <div className="form-group">
+          <p id="registerErr" className="hidden"></p>
+          <label style={{ color: "black" }}>Email</label>
+          <input
+            style={{ color: "black", borderBottom: "1px solid grey" }}
+            onChange={onChange}
+            type="text"
+            name="email"
+            className="form-control"
+          />
+        </div>
+        <div className="form-group">
+          <label style={{ color: "black" }}>Password</label>
+          <input
+            style={{ color: "black", borderBottom: "1px solid grey" }}
+            onChange={onChange}
+            type="password"
+            name="password"
+            className="form-control"
+            id="inputPass"
+          />
+        </div>
+        <div className="form-group">
+          <label style={{ color: "black" }}>Password Check</label>
+          <input
+            style={{ color: "black", borderBottom: "1px solid grey" }}
+            onChange={onChange}
+            type="password"
+            name="passwordCheck"
+            className="form-control"
+            id="inputCheck"
+          />
+          <p className="hidden err" id="passCheck">
+            Password doesn't Match
+          </p>
+        </div>
 
         <input
           style={{
