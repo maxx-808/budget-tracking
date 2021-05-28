@@ -7,6 +7,7 @@ const AllTransValue = () => {
   const { userData } = useContext(UserContext);
   const history = useHistory();
   const [userTransactions, setUserTransactions] = useState([]);
+  const page = useState({ page: "transValue" });
 
   const transactions = async (req, res) => {
     let cancelToken = axios.CancelToken;

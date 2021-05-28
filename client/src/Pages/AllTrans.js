@@ -7,6 +7,7 @@ const AllTrans = () => {
   const { userData } = useContext(UserContext);
   const history = useHistory();
   const [userTransactions, setUserTransactions] = useState([]);
+  const page = useState({ page: "trans" });
 
   const transactions = async (req, res) => {
     let cancelToken = axios.CancelToken;

@@ -7,9 +7,8 @@ const AllTransTitle = () => {
   const { userData } = useContext(UserContext);
   const history = useHistory();
   const [userTransactions, setUserTransactions] = useState([]);
-  //   const byVal = userTransactions.sort((a, b) => {
-  //     return a.title > b.title ? 1 : -1;
-  //   });
+  const page = useState({ page: "transTitle" });
+
   console.log("hi");
   const transactions = async (req, res) => {
     let cancelToken = axios.CancelToken;

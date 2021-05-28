@@ -7,6 +7,7 @@ import axios from "axios";
 
 const Contact = () => {
   const page = useState({ page: "contact" });
+  console.log(window.location.pathname);
   const [contact, setContact] = useState({
     name: "",
     email: "",
