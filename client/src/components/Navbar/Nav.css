@@ -10,3 +10,7 @@
   padding-right: 10px !important;
   padding-left: 10px !important;
 }
+
+.selected {
+  font-weight: bold;
+}

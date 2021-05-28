@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../Nav.css";
 
-const Nav = () => {
+const Nav = (props) => {
   // const currentPage = props.page[0].page;
   const [userData, setUserData] = useState({
     user: undefined,
@@ -13,6 +13,31 @@ const Nav = () => {
     localStorage.setItem("auth-token", "");
     localStorage.setItem("id", "");
   };
+
+  useEffect(() => {
+    if (props.page === "/about") {
+      const t = document.querySelector("a[href='/about'");
+      t.classList.add("selected");
+    }
+    if (
+      props.page === "/transactions" ||
+      props.page === "/transactions_value" ||
+      props.page === "/transactions_title"
+    ) {
+      const t = document.querySelector("a[href='/transactions'");
+      t.classList.add("selected");
+    }
+    if (props.page === "/contact") {
+      const t = document.querySelector("a[href='/contact'");
+      t.classList.add("selected");
+    }
+    if (props.page === "/profile") {
+      const t = document.querySelector("a[href='/profile'");
+      t.classList.add("selected");
+    }
+
+    return () => {};
+  }, [props.page]);
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -102,7 +127,7 @@ const Nav = () => {
           <div className="my-2 my-lg-0">
             <ul className="navbar-nav mr-auto">
               <li id="login" className="nav-item active">
-                <a className="nav-link" href="#">
+                <a className="nav-link" href="/profile">
                   Profile
                 </a>
               </li>

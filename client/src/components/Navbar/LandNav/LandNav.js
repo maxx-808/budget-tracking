@@ -16,13 +16,24 @@ const LandNav = (props) => {
     } else if (currentPage === "/register") {
       register.classList.add("hidden");
     }
-  });
 
-  // const logout = () => {
-  //   setUserData({ token: undefined, user: undefined });
-  //   localStorage.setItem("auth-token", "");
-  //   localStorage.setItem("id", "");
-  // };
+    if (props.page === "/about") {
+      const t = document.querySelector("a[href='/about'");
+      t.classList.add("selected");
+    }
+    if (props.page === "/contact") {
+      const t = document.querySelector("a[href='/contact'");
+      t.classList.add("selected");
+    }
+    if (props.page === "/register") {
+      const t = document.querySelector("a[href='/login'");
+      t.classList.add("selected");
+    }
+    if (props.page === "/login") {
+      const t = document.querySelector("a[href='/register'");
+      t.classList.add("selected");
+    }
+  });
 
   return (
     <div>
@@ -109,19 +120,14 @@ const LandNav = (props) => {
             <ul className="navbar-nav mr-auto">
               <li id="login" className="nav-item active">
                 <a className="nav-link" href="/login">
-                  Login
+                  Already have an account? Login here!
                 </a>
               </li>
               <li id="register" className="nav-item active">
                 <a className="nav-link" href="/register">
-                  Register Now!
+                  Dont have an account? Register Now!
                 </a>
               </li>
-              {/* <li id="logout" className="nav-item active">
-                <a className="nav-link" href="/" onClick={logout}>
-                  Log Out
-                </a>
-              </li> */}
             </ul>
           </div>
         </div>
