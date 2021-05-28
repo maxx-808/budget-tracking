@@ -22,6 +22,28 @@ As one of my first personal projects, I wanted to create something that I would 
 
 An application to seamlessly track your income and expenses with easy to read graphs and tables that allow you to look over your spending and what you spend on.
 
+
+Login page
+![Screenshot 2021-05-27 182734](https://user-images.githubusercontent.com/69176601/119929549-769cb080-bf19-11eb-8820-9d9743711787.jpg)
+
+
+Register page
+![Screenshot 2021-05-27 182759](https://user-images.githubusercontent.com/69176601/119929552-77cddd80-bf19-11eb-9a49-997ec545388b.jpg)
+
+
+Contact page
+![Screenshot 2021-05-27 182814](https://user-images.githubusercontent.com/69176601/119929558-78667400-bf19-11eb-920f-a01ecbf1594e.jpg)
+
+
+Home page
+![Screenshot 2021-05-27 182834](https://user-images.githubusercontent.com/69176601/119929559-7997a100-bf19-11eb-9738-21bca42d7a43.jpg)
+
+
+Transaction page
+![Screenshot 2021-05-27 182852](https://user-images.githubusercontent.com/69176601/119929563-7a303780-bf19-11eb-9af4-131fc3b9476e.jpg)
+
+
+
 ### BASIC TASK TILL COMPLETION:
 1. get app deployed to heroku (completed)
 2. have password encryption (completed)
