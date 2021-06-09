@@ -123,6 +123,7 @@ const LandNav = (props) => {
                   Login
                 </a>
               </li>
+
               <li id="register" className="nav-item active">
                 <a className="nav-link" href="/register">
                   Dont have an account? Register Now!
