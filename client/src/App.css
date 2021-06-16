@@ -114,8 +114,7 @@ body {
 }
 
 .page {
-  position: relative;
-  margin-bottom: 55px;
+  padding-bottom: 56px;
 }
 
 th {
