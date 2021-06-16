@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  background-color: rgb(228, 228, 228);
+  height: 100%;
 }
 
 .App-logo {
@@ -113,7 +115,7 @@ body {
 
 .page {
   position: relative;
-  margin-bottom: 80px;
+  margin-bottom: 55px;
 }
 
 th {
@@ -149,4 +151,8 @@ ol {
   text-align: left;
   margin-left: 15%;
   margin-right: 15%;
+}
+
+#branding {
+  margin-top: 30px;
 }

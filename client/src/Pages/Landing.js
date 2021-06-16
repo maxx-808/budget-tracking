@@ -7,30 +7,35 @@ const Landing = () => {
   return (
     <div className="page">
       <Auth>
-        <h1>Welcome to my Budget Tracker</h1>
-        <h5>Look to the top right of the screen to log in or register now!</h5>
-        <p>
-          If you want to learn more about this website and the creator, please
-          go to the about page (link located to the top left)
-        </p>
-        <p>
-          If you would like to contact me regarding this application please head
-          to the contact page
-        </p>
-        <p>
-          If you would like to go to the link for the github repo or any of my
-          links, click the link dropdown above
-        </p>
-        <p>
-          Currently as of JUNE 9, 2021 this application is still being updated
-          and in the beginning stages. As you can see there is much to be done
-          in terms of styling and usability. More updates to come.
-        </p>
+        <div id="branding">
+          <h1>Welcome to my Budget Tracker</h1>
+          <h5>
+            Look to the top right of the screen to log in or register now!
+          </h5>
+          <p>
+            If you want to learn more about this website and the creator, please
+            go to the about page (link located to the top left)
+          </p>
+          <p>
+            If you would like to contact me regarding this application please
+            head to the contact page
+          </p>
+          <p>
+            If you would like to go to the link for the github repo or any of my
+            links, click the link dropdown above
+          </p>
+          <p>
+            Currently as of JUNE 9, 2021 this application is still being updated
+            and in the beginning stages. As you can see there is much to be done
+            in terms of styling and usability. More updates to come.
+          </p>
+        </div>
         <br />
-        <h5>
+        <h4>
           Here are some things I've wanted to add some of which are already
           added
-        </h5>
+        </h4>
+        <br />
         <ol>
           <li> get app deployed to heroku (completed)</li>
           <li> have password encryption (completed)</li>
