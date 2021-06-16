@@ -37,7 +37,7 @@ const Nav = (props) => {
     }
   }, [props.page]);
   return (
-    <div>
+    <div className="navbars">
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <a className="navbar-brand" href="/home">
           Budget Tracker :D

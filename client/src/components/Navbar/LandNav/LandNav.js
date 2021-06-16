@@ -36,8 +36,8 @@ const LandNav = (props) => {
   });
 
   return (
-    <div>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <div className="navbars">
+      <nav className="navbar navbar-expand-lg navbar-light">
         <a className="navbar-brand" href="/">
           Budget Tracker :D
         </a>
