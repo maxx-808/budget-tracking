@@ -51,7 +51,7 @@ const Landing = () => {
             updating if anything changes with newer pushes)
           </li>
           <li>
-            adding more miscellanious pages such as an about page and terms and
+            adding more miscellaneous pages such as an about page and terms and
             conditions etc.
           </li>
           <li>

@@ -144,3 +144,8 @@ table {
 #descr {
   width: 600px;
 }
+
+ol {
+  text-align: left;
+  margin-left: 8%;
+}
