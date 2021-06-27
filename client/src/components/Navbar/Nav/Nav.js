@@ -36,9 +36,10 @@ const Nav = (props) => {
       t.classList.add("selected");
     }
   }, [props.page]);
+
   return (
     <div className="navbars">
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-expand-lg">
         <a className="navbar-brand" href="/home">
           Budget Tracker :D
         </a>

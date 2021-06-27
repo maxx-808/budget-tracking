@@ -57,8 +57,7 @@ const AllTrans = () => {
     <div className="page">
       <div className="nav-item dropdown">
         <span
-          className="nav-link dropdown-toggle"
-          id="dropdown"
+          className=" dropdown-toggle dropdown"
           role="button"
           data-toggle="dropdown"
           aria-haspopup="true"

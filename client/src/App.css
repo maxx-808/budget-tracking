@@ -67,8 +67,8 @@ body {
 .formInputs {
   align-items: center;
   height: auto;
-  margin-top: 20px;
-  margin-bottom: 100px;
+  margin-top: 30px;
+  margin-bottom: 40px;
   margin-left: 25%;
   margin-right: 25%;
   width: 50%;
@@ -115,6 +115,7 @@ body {
 
 .page {
   padding-bottom: 56px;
+  min-height: 890px;
 }
 
 th {
@@ -138,8 +139,9 @@ table {
   position: fixed;
 }
 
-#dropdown {
+.dropdown {
   width: 50px;
+  color: black;
 }
 
 #descr {
